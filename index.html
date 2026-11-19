@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   SIGAP - Eco Quiz Adventure
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div aria-hidden="true" class="forest-backdrop">
+  </div>
+  <main class="app">
+   <header>
+    <div class="logo">
+     🌿 SIGAP
+    </div>
+   </header>
+   <section class="screen active" id="start">
+    <div class="hero">
+     <div>
+      <p class="tag">
+       SELAMAT DATANG DI
+      </p>
+      <h1>
+       SIGAP
+      </h1>
+      <h2>
+       Siswa Gerak Aktif Peduli Lingkungan
+      </h2>
+      <p>
+       Isi nama lengkap dan pilih kategori permainanmu!
+      </p>
+     </div>
+    </div>
+    <div class="panel start-panel">
+     <label for="startName">
+      NAMA LENGKAP
+     </label>
+     <input autocomplete="name" id="startName" maxlength="50" placeholder="Masukkan nama lengkap Anda"/>
+     <h3>
+      PILIH KATEGORI GAME
+     </h3>
+     <div class="category-choice">
+      <button class="category-card selected" data-startcat="eco">
+       <span>
+        🌳
+       </span>
+       <b>
+        SIGAP ECO QUIZ
+       </b>
+      </button>
+      <button class="category-card" data-startcat="pai">
+       <span>
+        🕌
+       </span>
+       <b>
+        PENDIDIKAN AGAMA ISLAM
+       </b>
+      </button>
+     </div>
+     <button class="primary" id="enterGame">
+      MULAI PETUALANGAN →
+     </button>
+    </div>
+   </section>
+   <section class="screen" id="home">
+    <div class="hero">
+     <div>
+      <p class="tag">
+       SISWA GERAK AKTIF PEDULI LINGKUNGAN
+      </p>
+      <h1>
+       SIGAP
+      </h1>
+      <h2>
+       Quiz Peduli Lingkungan
+      </h2>
+      <p>
+       Belajar menjaga lingkungan sambil bermain!
+      </p>
+     </div>
+    </div>
+    <div class="menu">
+     <button data-go="game" id="mainPlay">
+      ▶MAIN
+     </button>
+     <button data-go="levels">
+      🧩LEVEL
+     </button>
+     <button data-go="settings">
+      ⚙️PENGATURAN
+     </button>
+     <button data-go="scores">
+      🏆PAPAN SKOR
+     </button>
+    </div>
+    <p class="foot">
+     🌱 Satu aksi kecil, perubahan besar untuk lingkungan!
+    </p>
+   </section>
+   <section class="screen" id="levels">
+    <div class="heading">
+     <button class="back">
+      ←
+     </button>
+     <h2>
+      Pilih Kategori &amp; Level
+     </h2>
+    </div>
+    <div class="tabs">
+     <button class="cat active" data-cat="eco">
+      🌳 SIGAP ECO QUIZ 
+     </button>
+     <button class="cat" data-cat="pai">
+      🕌 PENDIDIKAN AGAMA ISLAM 
+     </button>
+    </div>
+    <p class="legend" id="legend">
+     🟢 Mudah 1–15　 🟠 Sedang 16–30　 🔴 Sulit 31–50
+    </p>
+    <div class="level-grid" id="levelGrid">
+    </div>
+    <p class="foot">
+     Selesaikan level sebelumnya untuk membuka level berikutnya.
+    </p>
+   </section>
+   <section class="screen" id="settings">
+    <div class="heading">
+     <button class="back">
+      ←
+     </button>
+     <h2>
+      Pengaturan
+     </h2>
+    </div>
+    <div class="panel">
+     <div class="setting">
+      <span>
+       🔊 Efek Suara
+      </span>
+      <button class="toggle" id="soundToggle">
+       AKTIF
+      </button>
+     </div>
+     <div class="setting">
+      <span>
+       🎵 Musik
+      </span>
+      <button class="toggle" id="musicToggle">
+       MATI
+      </button>
+     </div>
+     <div class="setting">
+      <span>
+       🌐 Bahasa
+      </span>
+      <div>
+       <button class="lang active" data-lang="id">
+        Indonesia
+       </button>
+       <button class="lang" data-lang="en">
+        English
+       </button>
+      </div>
+     </div>
+    </div>
+    <p class="foot">
+     Atur suara sesuai kenyamananmu.
+    </p>
+   </section>
+   <section class="screen" id="scores">
+    <div class="heading">
+     <button class="back">
+      ←
+     </button>
+     <h2>
+      🏆 Papan Skor
+     </h2>
+    </div>
+    <div class="score-actions score-actions-top">
+     <button class="delete-scores" id="deleteAllScores">
+      🗑️ HAPUS SEMUA SKOR PEMAIN
+     </button>
+    </div>
+    <div class="tabs">
+     <button class="scoretab active" data-score="eco">
+      SIGAP ECO QUIZ
+     </button>
+     <button class="scoretab" data-score="pai">
+      PAI
+     </button>
+    </div>
+    <div class="panel">
+     <div class="scorehead">
+      <b>
+       #
+      </b>
+      <b>
+       Nama Pemain
+      </b>
+      <b>
+       Skor
+      </b>
+     </div>
+     <div id="scoreRows">
+     </div>
+    </div>
+   </section>
+   <section class="screen" id="game">
+    <div class="gamebar">
+     <button class="mini" id="exitGame">
+      ✕
+     </button>
+     <div>
+      <small id="categoryLabel">
+       SIGAP ECO QUIZ
+      </small>
+      <b id="levelLabel">
+       LEVEL 1
+      </b>
+     </div>
+     <strong>
+      ⭐
+      <span id="score">
+       0
+      </span>
+     </strong>
+    </div>
+    <div class="timerline">
+     <b id="questionNo">
+      SOAL 1/3
+     </b>
+     <div class="track">
+      <i id="timerBar">
+      </i>
+     </div>
+     <b>
+      ⏱
+      <span id="time">
+       40
+      </span>
+      s
+     </b>
+    </div>
+    <article class="question">
+     <div id="qEmoji">
+      🌱
+     </div>
+     <small>
+      PILIH JAWABAN YANG TEPAT
+     </small>
+     <h2 id="questionText">
+      Pertanyaan
+     </h2>
+    </article>
+    <div class="answers" id="answers">
+    </div>
+    <p class="feedback" id="feedback">
+    </p>
+   </section>
+   <section class="screen result" id="result">
+    <div class="medal">
+     🏅
+    </div>
+    <p class="tag">
+     TANTANGAN SELESAI
+    </p>
+    <h2>
+     LEVEL SELESAI!
+    </h2>
+    <p id="resultInfo">
+     Kamu telah menyelesaikan 3 soal.
+    </p>
+    <div class="times" id="times">
+    </div>
+    <div class="total">
+     SKOR LEVEL
+     <b id="finalScore">
+      0
+     </b>
+    </div>
+    <button class="primary" id="nextLevel">
+     LEVEL BERIKUTNYA →
+    </button>
+    <button class="secondary" id="homeResult">
+     MENU UTAMA
+    </button>
+   </section>
+  </main>
+  <div class="toast" id="toast">
+  </div>
+  <script src="script.js">
+  </script>
+ </body>
+</html>
+
